@@ -1,11 +1,12 @@
 # MedBear-CV-ITAI1378
 
-## Project Information
+## Team Members
 
-**Project:** MedBear Computer Vision Medication Verification  
-**Student:** Elexis Robinson  
-**Course:** ITAI 1378 Computer Vision and AI  
-**Tier 1:** CORE — This project uses one computer vision classification model to recognize a controlled set of pill appearances, with application logic that uses confidence scores to verify or reject uncertain predictions
+- Elexis Robinson
+
+## Project Tier
+
+**Tier 1: CORE** — This project uses one computer vision classification model to recognize a controlled set of pill appearances, with application logic that uses confidence scores to verify or reject uncertain predictions.
 
 ## Problem Statement
 
@@ -21,21 +22,37 @@ Pill Image → Preprocessing → Computer Vision Model → Predicted Pill Class 
 
 ## Technical Approach
 
-The primary computer vision task is **fine-grained multiclass image classification**. I plan to use transfer learning with a pretrained convolutional neural network rather than training a model from scratch.
+- **CV Technique:** Fine-grained multiclass image classification
+- **Model Architecture:** Convolutional Neural Network (CNN)
+- **Model:** ResNet50
+- **How I will use it:** Transfer learning on a controlled set of pill-image classes
+- **Framework:** PyTorch
+- **Development Environment:** Google Colab
+- **Additional Tools:** Python, OpenCV, GitHub
 
-The project will use Python with a deep-learning framework such as PyTorch or TensorFlow, along with OpenCV for image processing and Google Colab for development and training. Transfer learning is appropriate because the project focuses on a limited set of visually defined pill classes and must be achievable using free computing resources within one semester.
+Transfer learning is appropriate because the project focuses on a limited set of visually defined pill classes and can adapt a pretrained image model without training from scratch. This approach also keeps the project achievable using free computing resources within one semester.
 
-## Data Plan
+## Dataset
 
 The project will use a combination of public and custom pill-image data.
 
 ### NIH/NLM C3PI
-C3PI provides controlled reference images and consumer-quality pill images that can support pill-recognition research.
+
+- **Source:** NIH/NLM C3PI
+- **Data:** Controlled reference images and consumer-quality pill images
+- **Use:** Public pill-image source for model development and evaluation
+- **Link:** [ADD PUBLIC DATASET LINK]
 
 ### OGYEIv2
-OGYEIv2 contains 4,480 images representing 112 pill classes under controlled imaging conditions and multiple lighting conditions.
+
+- **Source:** OGYEIv2
+- **Size:** 4,480 images
+- **Classes:** 112 pill classes
+- **Use:** Controlled pill images captured under multiple imaging conditions
+- **Link:** [ADD PUBLIC DATASET LINK]
 
 ### Custom MedBear Dataset
+
 Later in development, I will capture images using the actual MedBear prototype camera. These images will vary lighting, rotation, distance, position, and partial occlusion so the model can be evaluated under conditions closer to the final device environment.
 
 ePillID may also be evaluated as an additional benchmark dataset.
@@ -44,21 +61,23 @@ For the first working model, I plan to narrow the project to approximately **5�
 
 ## Success Metrics
 
-**Primary metric:** Target a **macro F1 score of at least 0.85** on a held-out evaluation set.
-
-**Secondary metric:** Target **inference under 1 second per image** during the prototype computer vision workflow.
+- **Primary:** Measure macro F1 score with a target of at least **0.85** on a held-out evaluation set.
+- **Secondary:** Measure inference speed with a target of **under 1 second per image**.
 
 Additional evaluation will include a confusion matrix, per-class precision and recall, and analysis of low-confidence or rejected predictions.
 
 ## Milestone Plan
 
 ### Blueprint
+
 Finalize project scope, technical approach, data sources, success metrics, risks, and GitHub structure.
 
 ### First Working Demo
+
 Run a pretrained computer vision model end-to-end on a small number of sample pill images to confirm the pipeline works before beginning heavy data preparation or training.
 
 ### Make It Yours
+
 Select the initial MedBear pill classes, prepare the C3PI and/or OGYEIv2 data, fine-tune the model, and add confidence-based verification and rejection logic.
 
 **Capstone alignment:**
@@ -66,44 +85,53 @@ Select the initial MedBear pill classes, prepare the C3PI and/or OGYEIv2 data, f
 - Working AI Model: October 31
 
 ### Improve and Measure
+
 Evaluate performance using held-out and custom images, record metrics, analyze confusion between difficult classes, and improve robustness under different imaging conditions.
 
 **Capstone alignment:**
 - Integrated System Prototype: November 21
 
 ### Package and Present
+
 Complete the demonstration workflow, documentation, GitHub repository, final presentation, and demo video.
 
 **Capstone alignment:**
 - Final Project Delivery: December 5
 - Final Presentation: December 10
 
-## Risks and Plan B
+## Resources
 
-### Risk 1: Visually Similar Pills
+- **Compute:** Google Colab
+- **Framework:** PyTorch
+- **Libraries/Tools:** Python, OpenCV, GitHub
+- **Hardware:** Raspberry Pi and camera hardware already available for MedBear
+- **Additional Resources:** HCC fabrication and prototyping resources
+- **Estimated Cost:** $0 using free-tier and open-source resources
 
-Some pills may have very similar colors, shapes, or sizes, which could cause the model to confuse classes.
+## Risks and Mitigation
 
-**Plan B:** Reduce the initial class set, prioritize visually distinguishable classes, use image augmentation, analyze the confusion matrix, and reject low-confidence predictions rather than forcing a classification.
-
-### Risk 2: Public Data Does Not Match the MedBear Camera
-
-Public dataset images may look different from images captured inside the physical MedBear prototype.
-
-**Plan B:** Capture a small custom dataset using the actual MedBear camera and use those images for testing and supplemental training.
-
-## Resources and Estimated Cost
-
-- Google Colab
-- Python
-- PyTorch or TensorFlow
-- OpenCV
-- GitHub
-- Raspberry Pi and camera hardware already available for MedBear
-- HCC fabrication and prototyping resources
-
-**Estimated software and compute cost: $0** using free educational and cloud resources.
+| Risk | Probability | Plan B |
+|---|---|---|
+| Visually similar pills may be confused by the model | Medium | Reduce the initial class set, prioritize visually distinguishable classes, use augmentation, analyze the confusion matrix, and reject low-confidence predictions rather than forcing a classification |
+| Public dataset images may not match the MedBear camera environment | Medium | Capture a small custom dataset using the actual MedBear camera for testing and supplemental training |
 
 ## Responsible AI
 
 MedBear is an educational and research prototype. It is not a clinical diagnostic system and is not intended to replace pharmacists, physicians, or other healthcare professionals. Uncertain predictions will be rejected or flagged rather than automatically treated as correct.
+
+## Demo Video
+
+Link will be added at the Final.
+
+## AI Usage Log
+
+See `docs/AI_usage_log.md`.
+
+## Current Status
+
+- [x] Repository created
+- [ ] Proposal submitted
+- [ ] First working demo
+- [ ] System works on my data
+- [ ] Metrics measured
+- [ ] Final submitted
