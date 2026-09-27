@@ -5,7 +5,7 @@
 **Project:** MedBear Computer Vision Medication Verification  
 **Student:** Elexis Robinson  
 **Course:** ITAI 1378 Computer Vision and AI  
-**Tier:** Tier 1: CORE — This project uses one computer vision classification model to recognize a controlled set of pill appearances, with application logic that uses confidence scores to verify or reject uncertain predictions
+**Tier 1:** CORE — This project uses one computer vision classification model to recognize a controlled set of pill appearances, with application logic that uses confidence scores to verify or reject uncertain predictions
 
 ## Problem Statement
 
